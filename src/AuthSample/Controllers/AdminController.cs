@@ -1,4 +1,5 @@
 using System;
+using AuthSample.Models;
 using AuthSample.Services;
 using AuthSample.Utils;
 using Microsoft.AspNetCore.Mvc;
@@ -19,8 +20,9 @@ namespace AuthSample.Controllers
 
         
         [HttpPost(nameof(MakeUserAdmin))]
-        public IActionResult MakeUserAdmin(string userName)
+        public IActionResult MakeUserAdmin(MakeUserAdminModel makeUserAdminModel)
         {
+            string userName = makeUserAdminModel.UserName;
             try
             {
                 _authService.MakeUserAdmin(userName);
@@ -34,8 +36,9 @@ namespace AuthSample.Controllers
         }
         
         [HttpPost(nameof(ResetUserPassword))]
-        public IActionResult ResetUserPassword(string userName)
+        public IActionResult ResetUserPassword(ResetUserPasswordModel resetUserPasswordModel)
         {
+            string userName = resetUserPasswordModel.UserName;
             try
             {
                 _authService.ResetUserPassword(userName);

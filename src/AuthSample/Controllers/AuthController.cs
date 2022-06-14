@@ -28,7 +28,7 @@ namespace AuthSample.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                throw;
+                return BadRequest("Username or password is not correct");
             }
         }
 
@@ -46,7 +46,7 @@ namespace AuthSample.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                throw;
+                return BadRequest("Username or password is not correct");
             }
         }
     }
